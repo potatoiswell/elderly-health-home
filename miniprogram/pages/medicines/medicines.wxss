@@ -1,0 +1,167 @@
+/* 今日汇总 */
+.summary-card {
+  background-color: #2C5F8A;
+  background-image: linear-gradient(135deg, #2C5F8A 0%, #3E78A5 100%);
+}
+
+.summary-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.summary-num {
+  font-size: 110rpx;
+  font-weight: bold;
+  color: #F5A623;
+  line-height: 1.2;
+}
+
+.summary-total {
+  font-size: 60rpx;
+  color: #FFFFFF;
+}
+
+.summary-label {
+  margin-left: 20rpx;
+  font-size: 40rpx;
+  color: #FFFFFF;
+}
+
+.summary-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14rpx;
+  padding: 16rpx;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 18rpx;
+  font-size: 36rpx;
+  color: #FFFFFF;
+}
+
+.summary-text {
+  margin-left: 12rpx;
+}
+
+.add-btn {
+  margin-bottom: 28rpx;
+}
+
+.mini-tip {
+  margin-top: 20rpx;
+  font-size: 32rpx;
+  color: #7A6B58;
+  line-height: 1.7;
+}
+
+/* 用药条目 */
+.med-item {
+  display: flex;
+  align-items: center;
+  padding: 26rpx 0;
+  border-bottom: 2rpx solid #F2E9DA;
+}
+
+.med-item:last-child {
+  border-bottom: none;
+}
+
+.med-main {
+  flex: 1;
+  padding-right: 20rpx;
+}
+
+.med-name-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.med-name {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #2D2D2D;
+  max-width: 380rpx;
+  word-break: break-all;
+}
+
+.med-del {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  background: #FBEAE7;
+  color: #C62828;
+  font-size: 38rpx;
+  font-weight: bold;
+}
+
+.med-meta {
+  margin-top: 6rpx;
+  font-size: 34rpx;
+  color: #7A6B58;
+}
+
+.med-time {
+  margin-top: 8rpx;
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #2C5F8A;
+}
+
+.med-note {
+  margin-top: 6rpx;
+  font-size: 32rpx;
+  color: #8A7B67;
+}
+
+/* 状态按钮（大点击区 + 图标 + 文字） */
+.status-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 170rpx;
+  min-height: 150rpx;
+  border-radius: 24rpx;
+  font-weight: bold;
+}
+
+.status-hover {
+  opacity: 0.7;
+}
+
+.status-icon {
+  font-size: 54rpx;
+  line-height: 1.2;
+}
+
+.status-text {
+  font-size: 38rpx;
+  margin-top: 6rpx;
+}
+
+.status-taken {
+  background: #E7F3E9;
+  color: #2E7D32;
+}
+
+.status-pending {
+  background: #FDF3DC;
+  color: #8A6D1D;
+}
+
+.status-missed {
+  background: #FBEAE7;
+  color: #C62828;
+}
+
+.list-tip {
+  padding: 40rpx 0;
+  color: #7A6B58;
+  text-align: center;
+  font-size: 36rpx;
+}

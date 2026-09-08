@@ -1,0 +1,121 @@
+<view class="tab-page">
+  <!-- 血压 / 血糖 标签切换 -->
+  <view class="type-switch">
+    <view
+      class="type-item {{type === 'bp' ? 'type-active' : ''}}"
+      data-type="bp"
+      bindtap="onSwitchType"
+    >血压</view>
+    <view
+      class="type-item {{type === 'sugar' ? 'type-active' : ''}}"
+      data-type="sugar"
+      bindtap="onSwitchType"
+    >血糖</view>
+  </view>
+
+  <!-- 记录表单 -->
+  <view id="recordFormCard" class="card">
+    <view class="card-title">{{type === 'bp' ? '记录血压' : '记录血糖'}}</view>
+
+    <view class="field">
+      <view class="field-label">日期</view>
+      <picker mode="date" value="{{form.date}}" start="{{dateStart}}" end="{{dateEnd}}" bindchange="onDateChange">
+        <view class="input-box">
+          <input value="{{form.date}}" disabled placeholder="选择日期" />
+        </view>
+      </picker>
+    </view>
+
+    <block wx:if="{{type === 'bp'}}">
+      <view class="row-2">
+        <view class="field field-half">
+          <view class="field-label">收缩压（高压）</view>
+          <view class="input-box">
+            <input type="number" value="{{form.sbp}}" data-field="sbp" bindinput="onFormInput" placeholder="如 120" focus="{{focusSbp}}" />
+            <text class="input-unit">mmHg</text>
+          </view>
+        </view>
+        <view class="field field-half">
+          <view class="field-label">舒张压（低压）</view>
+          <view class="input-box">
+            <input type="number" value="{{form.dbp}}" data-field="dbp" bindinput="onFormInput" placeholder="如 80" />
+            <text class="input-unit">mmHg</text>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <block wx:else>
+      <view class="field">
+        <view class="field-label">血糖值</view>
+        <view class="input-box">
+          <input type="digit" value="{{form.sugar}}" data-field="sugar" bindinput="onFormInput" placeholder="如 6.1" />
+          <text class="input-unit">mmol/L</text>
+        </view>
+      </view>
+    </block>
+
+    <view class="field">
+      <view class="field-label">心率（选填）</view>
+      <view class="input-box">
+        <input type="number" value="{{form.heartRate}}" data-field="heartRate" bindinput="onFormInput" placeholder="如 72" />
+        <text class="input-unit">次/分</text>
+      </view>
+    </view>
+
+    <view class="field">
+      <view class="field-label">备注（选填）</view>
+      <view class="textarea-box">
+        <textarea
+          value="{{form.note}}"
+          data-field="note"
+          bindinput="onFormInput"
+          placeholder="如：早上空腹测量"
+          placeholder-class="placeholder-style"
+          maxlength="200"
+        ></textarea>
+      </view>
+    </view>
+
+    <button class="btn btn-accent" bindtap="onSave" disabled="{{saving}}">保存记录</button>
+  </view>
+
+  <!-- 近 7 次趋势图 -->
+  <view class="card">
+    <view class="card-title-row">
+      <view class="card-title">近 7 次趋势</view>
+      <view class="legend" wx:if="{{type === 'bp'}}">
+        <text class="legend-dot legend-bp"></text>高压
+        <text class="legend-dot legend-dbp"></text>低压
+      </view>
+    </view>
+    <canvas type="2d" id="trendCanvas" class="trend-canvas"></canvas>
+  </view>
+
+  <!-- 历史记录列表 -->
+  <view class="card">
+    <view class="card-title">历史记录</view>
+    <view wx:if="{{historyLoading}}" class="list-tip">正在加载…</view>
+    <view wx:elif="{{historyError}}" class="list-tip">{{historyError}}</view>
+    <block wx:elif="{{records.length === 0}}">
+      <view class="empty-state">
+        <view class="empty-icon">📖</view>
+        <view class="empty-title">还没有记录</view>
+        <view class="empty-desc">在上方填写后点击“保存记录”</view>
+      </view>
+    </block>
+    <block wx:else>
+      <view wx:for="{{records}}" wx:key="_id" class="history-item">
+        <view class="history-main">
+          <view class="history-date">{{item.dateText}}</view>
+          <view class="history-value">{{item.display}}</view>
+          <view class="history-note" wx:if="{{item.note}}">备注：{{item.note}}</view>
+          <view class="history-note" wx:if="{{item.heartRate}}">心率：{{item.heartRate}} 次/分</view>
+        </view>
+        <view class="del-btn" data-id="{{item._id}}" bindtap="onDeleteRecord">🗑️ 删除</view>
+      </view>
+    </block>
+  </view>
+
+  <view class="tip">血压值仅供参考，如有头晕、胸闷等不适请及时就医。</view>
+</view>

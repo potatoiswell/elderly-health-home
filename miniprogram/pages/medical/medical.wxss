@@ -1,0 +1,79 @@
+.small-tip {
+  color: #A89B88;
+  font-size: 34rpx;
+  padding: 20rpx 0;
+}
+
+.timeline {
+  padding-top: 10rpx;
+}
+
+.tl-item {
+  display: flex;
+}
+
+.tl-dot {
+  width: 40rpx;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.tl-dot::after {
+  content: '';
+  position: absolute;
+  top: 34rpx;
+  bottom: -8rpx;
+  width: 4rpx;
+  background: #E8DCC7;
+}
+
+.tl-item:last-child .tl-dot::after {
+  display: none;
+}
+
+.tl-dot-inner {
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 50%;
+  background: #F5A623;
+  margin-top: 12rpx;
+  position: relative;
+  z-index: 1;
+}
+
+.tl-body {
+  flex: 1;
+  padding: 0 0 38rpx 16rpx;
+}
+
+.tl-date {
+  font-size: 32rpx;
+  color: #7A6B58;
+}
+
+.tl-title {
+  font-size: 42rpx;
+  font-weight: bold;
+  margin-top: 6rpx;
+}
+
+.tl-line {
+  font-size: 36rpx;
+  color: #4C4337;
+  line-height: 1.7;
+  margin-top: 10rpx;
+}
+
+.tl-label {
+  font-weight: bold;
+  color: #2D2D2D;
+}
+
+.tl-del {
+  margin-top: 16rpx;
+  font-size: 32rpx;
+  color: #C62828;
+  text-decoration: underline;
+}

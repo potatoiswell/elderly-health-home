@@ -1,0 +1,9 @@
+{
+  "name": "family",
+  "version": "1.0.0",
+  "description": "子女绑定/解除/只读查看父母健康数据",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

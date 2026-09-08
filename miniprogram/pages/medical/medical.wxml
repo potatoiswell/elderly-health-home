@@ -1,0 +1,84 @@
+<view class="sub-page">
+  <!-- 添加/编辑 -->
+  <view class="card">
+    <view class="card-title">记录一次就医</view>
+
+    <view class="field">
+      <view class="field-label">就诊日期</view>
+      <picker mode="date" value="{{form.date}}" end="{{today}}" bindchange="onDateChange">
+        <view class="input-box">
+          <input value="{{form.date}}" disabled placeholder="选择日期" />
+        </view>
+      </picker>
+    </view>
+
+    <view class="field">
+      <view class="field-label">医院</view>
+      <view class="input-box">
+        <input value="{{form.hospital}}" data-field="hospital" bindinput="onFormInput" placeholder="如：市第一人民医院" placeholder-class="placeholder-style" />
+      </view>
+    </view>
+
+    <view class="field">
+      <view class="field-label">科室（选填）</view>
+      <view class="input-box">
+        <input value="{{form.department}}" data-field="department" bindinput="onFormInput" placeholder="如：心内科" placeholder-class="placeholder-style" />
+      </view>
+    </view>
+
+    <view class="field">
+      <view class="field-label">诊断结果</view>
+      <view class="textarea-box">
+        <textarea
+          value="{{form.diagnosis}}"
+          data-field="diagnosis"
+          bindinput="onFormInput"
+          placeholder="如：高血压 2 级，医生建议调整用药"
+          placeholder-class="placeholder-style"
+          maxlength="300"
+        ></textarea>
+      </view>
+    </view>
+
+    <view class="field">
+      <view class="field-label">用药建议（选填）</view>
+      <view class="textarea-box">
+        <textarea
+          value="{{form.advice}}"
+          data-field="advice"
+          bindinput="onFormInput"
+          placeholder="如：每天一次，一次一片"
+          placeholder-class="placeholder-style"
+          maxlength="300"
+        ></textarea>
+      </view>
+    </view>
+
+    <button class="btn btn-accent" bindtap="onSave" disabled="{{saving}}">保存记录</button>
+  </view>
+
+  <!-- 时间线 -->
+  <view class="card">
+    <view class="card-title">就医时间线</view>
+    <view wx:if="{{loadError}}" class="small-tip">{{loadError}}</view>
+    <view wx:elif="{{visits.length === 0}}" class="empty-state">
+      <view class="empty-icon">🏥</view>
+      <view class="empty-title">还没有就医记录</view>
+      <view class="empty-desc">看病后回来记录一下，方便下次复诊参考</view>
+    </view>
+    <view wx:else class="timeline">
+      <view wx:for="{{visits}}" wx:key="_id" class="tl-item">
+        <view class="tl-dot">
+          <view class="tl-dot-inner"></view>
+        </view>
+        <view class="tl-body">
+          <view class="tl-date">🏥 {{item.dateText}}</view>
+          <view class="tl-title">{{item.hospital}}<text wx:if="{{item.department}}"> · {{item.department}}</text></view>
+          <view class="tl-line"><text class="tl-label">诊断：</text>{{item.diagnosis}}</view>
+          <view class="tl-line" wx:if="{{item.advice}}"><text class="tl-label">建议：</text>{{item.advice}}</view>
+          <view class="tl-del" data-id="{{item._id}}" bindtap="onDelete">删除这条</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

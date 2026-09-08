@@ -1,0 +1,9 @@
+{
+  "name": "wxRun",
+  "version": "1.0.0",
+  "description": "解密微信运动步数（wx.getWeRunData）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

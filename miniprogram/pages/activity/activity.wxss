@@ -1,0 +1,99 @@
+.summary-card {
+  background-color: #2C5F8A;
+  background-image: linear-gradient(135deg, #2C5F8A 0%, #3E78A5 100%);
+}
+
+.sum-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.sum-item {
+  flex: 1;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.sum-num {
+  font-size: 88rpx;
+  font-weight: bold;
+  color: #F5A623;
+}
+
+.sum-label {
+  margin-top: 6rpx;
+  font-size: 34rpx;
+  color: #DCE9F4;
+}
+
+.sum-divider {
+  width: 2rpx;
+  height: 90rpx;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.wechat-tip {
+  color: #7A6B58;
+  font-size: 34rpx;
+  line-height: 1.7;
+  margin-bottom: 22rpx;
+}
+
+.row-2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.field-half {
+  width: 48.5%;
+}
+
+.act-item {
+  padding: 22rpx 0;
+  border-bottom: 2rpx solid #F2E9DA;
+}
+
+.act-item:last-child {
+  border-bottom: none;
+}
+
+.act-date {
+  font-size: 32rpx;
+  color: #7A6B58;
+}
+
+.act-nums {
+  display: flex;
+  align-items: baseline;
+  margin-top: 8rpx;
+}
+
+.act-steps {
+  font-size: 64rpx;
+  font-weight: bold;
+  color: #2C5F8A;
+}
+
+.act-unit {
+  font-size: 32rpx;
+  color: #7A6B58;
+  margin-left: 10rpx;
+}
+
+.act-duration {
+  font-size: 36rpx;
+  color: #B9770A;
+}
+
+.act-note {
+  margin-top: 8rpx;
+  font-size: 32rpx;
+  color: #7A6B58;
+}
+
+.small-tip {
+  color: #A89B88;
+  font-size: 34rpx;
+  padding: 20rpx 0;
+}

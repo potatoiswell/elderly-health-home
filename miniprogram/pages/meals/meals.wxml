@@ -1,0 +1,89 @@
+<view class="sub-page">
+  <!-- 记录卡片 -->
+  <view class="card">
+    <view class="card-title">记录一餐</view>
+
+    <view class="field">
+      <view class="field-label">餐次</view>
+      <view class="type-row">
+        <view
+          wx:for="{{types}}"
+          wx:key="key"
+          class="type-chip {{mealType === item.key ? 'type-on' : ''}}"
+          data-type="{{item.key}}"
+          bindtap="onTypeTap"
+        >
+          <view class="type-icon">{{item.icon}}</view>
+          <view>{{item.text}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="field">
+      <view class="field-label">日期</view>
+      <picker mode="date" value="{{date}}" end="{{date}}" bindchange="onDateChange">
+        <view class="input-box">
+          <input value="{{date}}" disabled placeholder="选择日期" />
+        </view>
+      </picker>
+    </view>
+
+    <view class="field">
+      <view class="field-label">拍了照吗？（选填）</view>
+      <view class="photo-area">
+        <image wx:if="{{tempImagePath}}" class="photo-preview" src="{{tempImagePath}}" mode="aspectFill" bindtap="onPreview" data-file="{{imageFileID}}"></image>
+        <view class="photo-actions">
+          <button class="btn btn-ghost btn-sm" bindtap="onChooseImage">📷 拍照 / 选图</button>
+          <button wx:if="{{tempImagePath}}" class="photo-remove" bindtap="removeTempImage">✕ 取消图片</button>
+        </view>
+      </view>
+    </view>
+
+    <view class="field">
+      <view class="field-label">吃了什么？（选填）</view>
+      <view class="textarea-box">
+        <textarea
+          value="{{note}}"
+          bindinput="onNoteInput"
+          placeholder="如：半碗米饭、清炒青菜、一块鱼"
+          placeholder-class="placeholder-style"
+          maxlength="300"
+        ></textarea>
+      </view>
+    </view>
+
+    <button class="btn btn-accent" bindtap="onSave" disabled="{{uploading}}">保存饮食</button>
+  </view>
+
+  <!-- 历史 -->
+  <view class="card">
+    <view class="card-title">历史记录</view>
+    <view wx:if="{{loadError}}" class="small-tip">{{loadError}}</view>
+    <view wx:elif="{{meals.length === 0}}" class="empty-state">
+      <view class="empty-icon">🍚</view>
+      <view class="empty-title">还没有饮食记录</view>
+      <view class="empty-desc">拍照记录每一餐，饮食更放心</view>
+    </view>
+    <view wx:else>
+      <view wx:for="{{meals}}" wx:key="_id" class="meal-item">
+        <image
+          wx:if="{{item.imageFileID}}"
+          class="meal-img"
+          src="{{item.imageFileID}}"
+          mode="aspectFill"
+          data-file="{{item.imageFileID}}"
+          bindtap="onPreview"
+        ></image>
+        <view class="meal-main">
+          <view class="meal-head">
+            <text class="meal-type">{{item.typeIcon}} {{item.typeText}}</text>
+            <text class="meal-date">{{item.dateText}}</text>
+          </view>
+          <view class="meal-note" wx:if="{{item.note}}">{{item.note}}</view>
+          <view class="meal-noimg" wx:if="{{!item.imageFileID}}">（未拍照）</view>
+        </view>
+        <view class="meal-del" data-id="{{item._id}}" bindtap="onDelete">✕</view>
+      </view>
+    </view>
+  </view>
+</view>

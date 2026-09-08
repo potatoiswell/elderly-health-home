@@ -1,0 +1,79 @@
+<view class="tab-page">
+  <!-- 用户信息头卡 -->
+  <view class="card user-card">
+    <view class="user-info">
+      <image class="avatar" src="{{user.avatarFileID || '/images/avatar.png'}}" mode="aspectFill"></image>
+      <view class="user-text">
+        <view class="user-name">{{user.name || '我'}}</view>
+        <view class="user-age">{{user.age ? user.age + ' 岁' : '年龄未设置'}}</view>
+      </view>
+      <view class="btn btn-primary btn-sm edit-btn" bindtap="goArchive">编辑档案</view>
+    </view>
+
+    <view class="contact-line" bindtap="callEmergency" hover-class="row-hover">
+      <text class="contact-icon">☎️</text>
+      <view class="contact-body">
+        <view class="contact-title">紧急联系人</view>
+        <view class="contact-desc">
+          {{user.emergencyName ? user.emergencyName + ' · ' : ''}}{{user.emergencyPhone || '未设置，点击设置'}}
+        </view>
+      </view>
+      <text class="go-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 子女帮设置 -->
+  <view class="card">
+    <view class="menu-row" bindtap="toggleFamily" hover-class="row-hover">
+      <text class="menu-icon">👨‍👩‍👧</text>
+      <view class="menu-body">
+        <view class="menu-title">子女帮设置</view>
+        <view class="menu-desc">子女扫码/绑定后可帮您查看和管理健康信息</view>
+      </view>
+      <text class="go-arrow">{{showFamily ? '⌃' : '⌄'}}</text>
+    </view>
+
+    <view class="family-panel" wx:if="{{showFamily}}">
+      <view class="family-steps">
+        <view class="step">1. 点击下方按钮生成 6 位绑定码</view>
+        <view class="step">2. 将绑定码发给子女</view>
+        <view class="step">3. 子女在微信中绑定后即可远程查看（第二版开放）</view>
+      </view>
+
+      <view class="bind-card" wx:if="{{bindCode}}">
+        <view class="bind-label">{{familyTip}}</view>
+        <view class="bind-code">{{bindCode}}</view>
+        <view class="bind-btns">
+          <button class="btn btn-primary btn-sm bind-btn" bindtap="copyBindCode">复制绑定码</button>
+          <button class="btn btn-accent btn-sm bind-btn" bindtap="genBindCode">重新生成</button>
+        </view>
+        <button class="btn btn-ghost btn-sm share-btn" open-type="share">把绑定码发给子女</button>
+      </view>
+
+      <button class="btn btn-primary bind-gen-btn" wx:else bindtap="genBindCode">生成 6 位绑定码</button>
+    </view>
+  </view>
+
+  <!-- 常用功能 -->
+  <view class="card">
+    <view class="menu-row" bindtap="goArchive" hover-class="row-hover">
+      <text class="menu-icon">📋</text>
+      <view class="menu-body">
+        <view class="menu-title">健康档案</view>
+        <view class="menu-desc">姓名、年龄、病史、过敏药物、紧急联系人</view>
+      </view>
+      <text class="go-arrow">›</text>
+    </view>
+
+    <view class="menu-row" bindtap="exportData" hover-class="row-hover">
+      <text class="menu-icon">📤</text>
+      <view class="menu-body">
+        <view class="menu-title">数据导出</view>
+        <view class="menu-desc">把全部健康数据导出为 JSON 文件分享</view>
+      </view>
+      <text class="go-arrow">›</text>
+    </view>
+  </view>
+
+  <view class="version-tip">老年人健康居家管理 v1.0 · 数据存于微信云开发</view>
+</view>

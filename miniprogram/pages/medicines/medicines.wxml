@@ -1,0 +1,103 @@
+<view class="tab-page">
+  <!-- 今日用药情况 -->
+  <view class="card summary-card">
+    <view class="summary-top">
+      <view class="summary-num">{{taken}}<text class="summary-total"> / {{total}}</text></view>
+      <view class="summary-label">今日已服</view>
+    </view>
+    <view class="summary-status {{allDone ? 'state-taken' : ''}}">
+      <text>{{allDone ? '🎉' : '⏰'}}</text>
+      <text class="summary-text">{{summaryText}}</text>
+    </view>
+  </view>
+
+  <!-- 添加用药 -->
+  <button class="btn btn-accent add-btn" bindtap="toggleForm">
+    {{showForm ? '收起表单' : '＋ 添加用药'}}
+  </button>
+
+  <view class="card" wx:if="{{showForm}}">
+    <view class="card-title">添加用药计划</view>
+
+    <view class="field">
+      <view class="field-label">药名</view>
+      <view class="input-box">
+        <input value="{{medForm.name}}" data-field="name" bindinput="onFormInput" placeholder="如：硝苯地平片" placeholder-class="placeholder-style" />
+      </view>
+    </view>
+
+    <view class="field">
+      <view class="field-label">剂量</view>
+      <view class="input-box">
+        <input value="{{medForm.dosage}}" data-field="dosage" bindinput="onFormInput" placeholder="如：1 片 / 10mg" placeholder-class="placeholder-style" />
+      </view>
+    </view>
+
+    <view class="field">
+      <view class="field-label">服药时间</view>
+      <picker mode="time" value="{{medForm.time}}" bindchange="onTimeChange">
+        <view class="input-box">
+          <input value="{{medForm.time}}" disabled placeholder="选择时间" />
+          <text class="input-unit">⏰</text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="field">
+      <view class="field-label">备注（选填）</view>
+      <view class="textarea-box">
+        <textarea
+          value="{{medForm.note}}"
+          data-field="note"
+          bindinput="onFormInput"
+          placeholder="如：饭后半小时服用"
+          placeholder-class="placeholder-style"
+          maxlength="200"
+        ></textarea>
+      </view>
+    </view>
+
+    <button class="btn btn-primary" bindtap="onAddMedicine">保存用药计划</button>
+    <view class="mini-tip">保存后请先允许“服药提醒”订阅消息，到点才会收到微信提醒。</view>
+  </view>
+
+  <!-- 用药列表 -->
+  <view class="card med-list-card">
+    <view class="card-title">今日用药列表</view>
+
+    <view wx:if="{{loadError}}" class="list-tip">{{loadError}}</view>
+    <block wx:elif="{{items.length === 0}}">
+      <view class="empty-state">
+        <view class="empty-icon">💊</view>
+        <view class="empty-title">还没有用药计划</view>
+        <view class="empty-desc">点击上方“添加用药”，按时吃药更安心</view>
+      </view>
+    </block>
+
+    <block wx:else>
+      <view wx:for="{{items}}" wx:key="_id" class="med-item">
+        <view class="med-main">
+          <view class="med-name-row">
+            <text class="med-name">{{item.name}}</text>
+            <view class="med-del" data-id="{{item._id}}" catchtap="onDeleteMedicine">✕</view>
+          </view>
+          <view class="med-meta" wx:if="{{item.dosage}}">剂量：{{item.dosage}}</view>
+          <view class="med-time">⏰ {{item.time}}</view>
+          <view class="med-note" wx:if="{{item.note}}">{{item.note}}</view>
+        </view>
+
+        <view
+          class="status-btn status-{{item.status}}"
+          data-id="{{item._id}}"
+          bindtap="onToggleStatus"
+          hover-class="status-hover"
+        >
+          <view class="status-icon">{{item.statusIcon}}</view>
+          <view class="status-text">{{item.statusText}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class="mini-tip">点击右侧状态可切换“已服/未服”。到点未服药会收到微信订阅消息提醒。</view>
+</view>

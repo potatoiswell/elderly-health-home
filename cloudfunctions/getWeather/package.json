@@ -1,0 +1,9 @@
+{
+  "name": "getWeather",
+  "version": "1.0.0",
+  "description": "调用和风天气免费 API 获取天气并给出出行建议（含天气缓存）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

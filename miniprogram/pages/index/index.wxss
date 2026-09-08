@@ -1,0 +1,320 @@
+.head-card {
+  background-color: #2C5F8A;
+  background-image: linear-gradient(135deg, #2C5F8A 0%, #3E78A5 100%);
+}
+
+.head-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.greeting {
+  font-size: 52rpx;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.date-text {
+  margin-top: 12rpx;
+  font-size: 38rpx;
+  color: #DCE9F4;
+}
+
+.family-entry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 180rpx;
+  min-height: 116rpx;
+  padding: 0 16rpx;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 24rpx;
+  color: #FFFFFF;
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.family-icon {
+  font-size: 44rpx;
+  line-height: 1.2;
+}
+
+/* 天气 */
+.weather-card {
+  background: #FFFFFF;
+}
+
+.weather-main {
+  display: flex;
+  align-items: center;
+}
+
+.weather-icon {
+  font-size: 84rpx;
+  line-height: 1.2;
+  margin-right: 20rpx;
+}
+
+.weather-temp {
+  font-size: 92rpx;
+  font-weight: bold;
+  color: #2C5F8A;
+  line-height: 1.15;
+  margin-right: 22rpx;
+}
+
+.weather-detail {
+  flex: 1;
+}
+
+.weather-text {
+  font-size: 44rpx;
+  font-weight: bold;
+}
+
+.weather-range {
+  font-size: 34rpx;
+  color: #7A6B58;
+  margin-top: 6rpx;
+}
+
+.weather-loc {
+  font-size: 30rpx;
+  color: #A89B88;
+  margin-top: 4rpx;
+}
+
+.voice-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150rpx;
+  min-height: 92rpx;
+  padding: 0 20rpx;
+  border-radius: 46rpx;
+  background: #FBF3E3;
+  color: #B9770A;
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.advice-line {
+  margin-top: 24rpx;
+  padding: 22rpx 24rpx;
+  border-radius: 18rpx;
+  background: #FDF3DC;
+  color: #7A5B12;
+  font-size: 40rpx;
+  line-height: 1.6;
+  font-weight: bold;
+}
+
+.weather-loading,
+.weather-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 180rpx;
+  color: #7A6B58;
+}
+
+.weather-empty-text {
+  font-size: 38rpx;
+  text-align: center;
+  margin-bottom: 24rpx;
+}
+
+.refresh-btn {
+  min-width: 220rpx;
+}
+
+/* 跌倒呼救大按钮 */
+.fall-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 170rpx;
+  margin-bottom: 28rpx;
+  padding: 0 40rpx;
+  border-radius: 30rpx;
+  background-color: #C62828;
+  background-image: linear-gradient(135deg, #D32F2F 0%, #B71C1C 100%);
+  color: #FFFFFF;
+  text-align: left;
+}
+
+.fall-btn[disabled] {
+  opacity: 0.7;
+}
+
+.fall-icon {
+  font-size: 92rpx;
+  line-height: 1.3;
+  margin-right: 26rpx;
+}
+
+.fall-texts {
+  flex: 1;
+}
+
+.fall-title {
+  font-size: 56rpx;
+  font-weight: bold;
+  color: #FFFFFF;
+  line-height: 1.3;
+}
+
+.fall-desc {
+  margin-top: 6rpx;
+  font-size: 32rpx;
+  color: #FFE3DE;
+}
+
+/* 2x2 宫格 */
+.core-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 28rpx;
+}
+
+.core-tile {
+  width: 48.5%;
+  min-height: 280rpx;
+  margin-bottom: 24rpx;
+  padding: 30rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  border-radius: 26rpx;
+  box-shadow: 0 4rpx 16rpx rgba(44, 95, 138, 0.08);
+  border-top: 8rpx solid #2C5F8A;
+}
+
+.core-tile:nth-child(3) {
+  border-top-color: #C62828;
+}
+
+.tile-hover {
+  background: #F2EDE3;
+}
+
+.tile-icon {
+  font-size: 90rpx;
+  line-height: 1.2;
+}
+
+.tile-title {
+  margin-top: 14rpx;
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #2D2D2D;
+}
+
+.tile-desc {
+  margin-top: 6rpx;
+  font-size: 30rpx;
+  color: #7A6B58;
+}
+
+/* 今日状态行 */
+.status-row {
+  display: flex;
+  align-items: center;
+  min-height: 130rpx;
+  padding: 16rpx 10rpx;
+  border-bottom: 2rpx solid #F2E9DA;
+}
+
+.status-row:last-child {
+  border-bottom: none;
+}
+
+.row-hover {
+  background: #FBF7EF;
+}
+
+.status-icon {
+  font-size: 64rpx;
+  margin-right: 24rpx;
+}
+
+.status-body {
+  flex: 1;
+}
+
+.status-title {
+  font-size: 42rpx;
+  font-weight: bold;
+}
+
+.status-desc {
+  font-size: 34rpx;
+  color: #7A6B58;
+  margin-top: 4rpx;
+}
+
+.status-mark {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.ok-mark {
+  color: #2E7D32;
+}
+
+.todo-mark {
+  color: #B9770A;
+}
+
+/* 更多服务 */
+.menu-row {
+  display: flex;
+  align-items: center;
+  min-height: 130rpx;
+  padding: 16rpx 10rpx;
+  border-bottom: 2rpx solid #F2E9DA;
+}
+
+.menu-row:last-child {
+  border-bottom: none;
+}
+
+.menu-icon {
+  font-size: 64rpx;
+  margin-right: 24rpx;
+}
+
+.menu-body {
+  flex: 1;
+}
+
+.menu-title {
+  font-size: 42rpx;
+  font-weight: bold;
+}
+
+.menu-desc {
+  font-size: 32rpx;
+  color: #7A6B58;
+  margin-top: 4rpx;
+}
+
+.go-arrow {
+  font-size: 52rpx;
+  color: #2C5F8A;
+  font-weight: bold;
+}
+
+.safe-tip {
+  padding: 16rpx 8rpx;
+  font-size: 32rpx;
+  color: #A89B88;
+  text-align: center;
+  line-height: 1.7;
+}

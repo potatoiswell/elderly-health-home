@@ -1,0 +1,134 @@
+/* 标签切换 */
+.type-switch {
+  display: flex;
+  background: #EFE6D6;
+  border-radius: 58rpx;
+  padding: 8rpx;
+  margin-bottom: 28rpx;
+}
+
+.type-item {
+  flex: 1;
+  min-height: 104rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 52rpx;
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #7A6B58;
+}
+
+.type-active {
+  background: #2C5F8A;
+  color: #FFFFFF;
+}
+
+/* 表单双列 */
+.row-2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.field-half {
+  width: 48.5%;
+}
+
+.field-half .input-box input {
+  font-size: 44rpx;
+}
+
+/* 趋势图 */
+.trend-canvas {
+  width: 100%;
+  height: 420rpx;
+  border-radius: 16rpx;
+  background: #FBF8F2;
+}
+
+.legend {
+  font-size: 32rpx;
+  color: #7A6B58;
+  display: flex;
+  align-items: center;
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 26rpx;
+  height: 26rpx;
+  border-radius: 50%;
+  margin: 0 10rpx 0 18rpx;
+}
+
+.legend-bp {
+  background: #2C5F8A;
+}
+
+.legend-dbp {
+  background: #F5A623;
+}
+
+/* 历史列表 */
+.history-item {
+  display: flex;
+  align-items: center;
+  min-height: 150rpx;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #F2E9DA;
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-main {
+  flex: 1;
+}
+
+.history-date {
+  font-size: 34rpx;
+  color: #7A6B58;
+}
+
+.history-value {
+  font-size: 52rpx;
+  font-weight: bold;
+  color: #2C5F8A;
+  margin-top: 4rpx;
+}
+
+.history-note {
+  font-size: 30rpx;
+  color: #7A6B58;
+  margin-top: 4rpx;
+}
+
+.del-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150rpx;
+  min-height: 100rpx;
+  padding: 0 16rpx;
+  border-radius: 50rpx;
+  background: #FBEAE7;
+  color: #C62828;
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.list-tip {
+  padding: 40rpx 0;
+  color: #7A6B58;
+  text-align: center;
+  font-size: 36rpx;
+}
+
+.tip {
+  font-size: 30rpx;
+  color: #A89B88;
+  text-align: center;
+  padding: 10rpx;
+  line-height: 1.7;
+}

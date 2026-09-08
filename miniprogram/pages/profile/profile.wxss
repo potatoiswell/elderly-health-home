@@ -1,0 +1,176 @@
+.user-card {
+  background-color: #2C5F8A;
+  background-image: linear-gradient(135deg, #2C5F8A 0%, #3E78A5 100%);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 4rpx solid rgba(255, 255, 255, 0.7);
+}
+
+.user-text {
+  flex: 1;
+  margin-left: 26rpx;
+  color: #FFFFFF;
+}
+
+.user-name {
+  font-size: 52rpx;
+  font-weight: bold;
+}
+
+.user-age {
+  margin-top: 8rpx;
+  font-size: 36rpx;
+  color: #DCE9F4;
+}
+
+.edit-btn {
+  background: #F5A623;
+  color: #2D2D2D;
+}
+
+.contact-line {
+  display: flex;
+  align-items: center;
+  margin-top: 26rpx;
+  padding: 20rpx;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 22rpx;
+}
+
+.row-hover {
+  background: #F7F0E4;
+}
+
+.contact-icon {
+  font-size: 52rpx;
+  margin-right: 18rpx;
+}
+
+.contact-body {
+  flex: 1;
+  color: #FFFFFF;
+}
+
+.contact-title {
+  font-size: 38rpx;
+  font-weight: bold;
+}
+
+.contact-desc {
+  font-size: 34rpx;
+  color: #DCE9F4;
+  margin-top: 4rpx;
+}
+
+.go-arrow {
+  font-size: 52rpx;
+  color: #2C5F8A;
+  font-weight: bold;
+}
+
+/* 菜单行 */
+.menu-row {
+  display: flex;
+  align-items: center;
+  min-height: 130rpx;
+  padding: 16rpx 10rpx;
+  border-bottom: 2rpx solid #F2E9DA;
+}
+
+.card .menu-row:last-child {
+  border-bottom: none;
+}
+
+.menu-icon {
+  font-size: 62rpx;
+  margin-right: 24rpx;
+}
+
+.menu-body {
+  flex: 1;
+}
+
+.menu-title {
+  font-size: 44rpx;
+  font-weight: bold;
+}
+
+.menu-desc {
+  font-size: 32rpx;
+  color: #7A6B58;
+  margin-top: 4rpx;
+}
+
+/* 子女面板 */
+.family-panel {
+  padding: 24rpx 0 10rpx;
+}
+
+.family-steps {
+  background: #FBF5EB;
+  border-radius: 20rpx;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.step {
+  font-size: 34rpx;
+  color: #5F5344;
+  line-height: 1.9;
+}
+
+.bind-card {
+  text-align: center;
+  padding: 24rpx;
+  border: 4rpx dashed #2C5F8A;
+  border-radius: 24rpx;
+}
+
+.bind-label {
+  font-size: 34rpx;
+  color: #7A6B58;
+}
+
+.bind-code {
+  margin: 16rpx auto;
+  font-size: 110rpx;
+  font-weight: bold;
+  letter-spacing: 16rpx;
+  color: #2C5F8A;
+}
+
+.bind-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bind-btn {
+  width: 48%;
+}
+
+.share-btn {
+  margin-top: 22rpx;
+  width: 100%;
+}
+
+.bind-gen-btn {
+  width: 100%;
+  margin-top: 10rpx;
+}
+
+.version-tip {
+  text-align: center;
+  color: #A89B88;
+  font-size: 30rpx;
+  padding: 20rpx 0;
+}

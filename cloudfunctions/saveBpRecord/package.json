@@ -1,0 +1,9 @@
+{
+  "name": "saveBpRecord",
+  "version": "1.0.0",
+  "description": "保存血压/血糖记录（云函数写入，统一附带 openid）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

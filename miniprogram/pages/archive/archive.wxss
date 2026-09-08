@@ -1,0 +1,25 @@
+.avatar-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 34rpx;
+}
+
+.avatar-preview {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  background: #FBF5EB;
+  margin-right: 28rpx;
+}
+
+.avatar-btn {
+  min-width: 260rpx;
+}
+
+.privacy-tip {
+  padding: 14rpx 12rpx;
+  color: #7A6B58;
+  font-size: 32rpx;
+  line-height: 1.7;
+  text-align: center;
+}

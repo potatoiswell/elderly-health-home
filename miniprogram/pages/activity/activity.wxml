@@ -1,0 +1,87 @@
+<view class="sub-page">
+  <!-- 今日汇总 -->
+  <view class="card summary-card">
+    <view class="sum-row">
+      <view class="sum-item">
+        <view class="sum-num">{{todaySteps}}</view>
+        <view class="sum-label">今日步数</view>
+      </view>
+      <view class="sum-divider"></view>
+      <view class="sum-item">
+        <view class="sum-num">{{weekTotal}}</view>
+        <view class="sum-label">近7日步数</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 微信运动 -->
+  <view class="card">
+    <view class="card-title">从微信运动读取</view>
+    <view class="wechat-tip">需要您曾使用“微信运动”。点击后会自动授权并记录今天走路的步数。</view>
+    <button class="btn btn-primary" bindtap="onReadWeRun" disabled="{{reading}}">
+      {{reading ? '读取中…' : '🏃 读取今日步数'}}
+    </button>
+  </view>
+
+  <!-- 手动记录 -->
+  <view class="card">
+    <view class="card-title">手动记录</view>
+
+    <view class="row-2">
+      <view class="field field-half">
+        <view class="field-label">步数</view>
+        <view class="input-box">
+          <input type="number" value="{{form.steps}}" data-field="steps" bindinput="onFormInput" placeholder="如 3000" />
+          <text class="input-unit">步</text>
+        </view>
+      </view>
+      <view class="field field-half">
+        <view class="field-label">散步时长</view>
+        <view class="input-box">
+          <input type="number" value="{{form.duration}}" data-field="duration" bindinput="onFormInput" placeholder="如 30" />
+          <text class="input-unit">分钟</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="field">
+      <view class="field-label">备注（选填）</view>
+      <view class="textarea-box">
+        <textarea
+          value="{{form.note}}"
+          data-field="note"
+          bindinput="onFormInput"
+          placeholder="如：小区里散步"
+          placeholder-class="placeholder-style"
+          maxlength="200"
+        ></textarea>
+      </view>
+    </view>
+
+    <button class="btn btn-accent" bindtap="onSaveManual" disabled="{{saving}}">保存今日活动</button>
+  </view>
+
+  <!-- 历史记录 -->
+  <view class="card">
+    <view class="card-title">历史记录</view>
+    <view wx:if="{{loadError}}" class="small-tip">{{loadError}}</view>
+    <view wx:elif="{{activities.length === 0}}" class="empty-state">
+      <view class="empty-icon">🚶</view>
+      <view class="empty-title">还没有活动记录</view>
+      <view class="empty-desc">每天走一走，健康更长久</view>
+    </view>
+    <view wx:else>
+      <view wx:for="{{activities}}" wx:key="_id" class="act-item">
+        <view class="act-main">
+          <view class="act-date">{{item.dateText}} · {{item.sourceText}}</view>
+          <view class="act-nums">
+            <text class="act-steps">{{item.steps}}</text>
+            <text class="act-unit">步</text>
+            <text class="act-duration" wx:if="{{item.duration}}">　{{item.duration}}</text>
+          </view>
+          <view class="act-note" wx:if="{{item.note}}">{{item.note}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

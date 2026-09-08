@@ -1,0 +1,120 @@
+<view class="tab-page">
+  <!-- 顶部问候 -->
+  <view class="card head-card">
+    <view class="head-row">
+      <view class="head-left">
+        <view class="greeting">{{greeting}}</view>
+        <view class="date-text">{{dateText}} {{weekText}}</view>
+      </view>
+      <view class="family-entry" bindtap="onMoreTap" data-key="family">
+        <text class="family-icon">👨‍👩‍👧</text>
+        <text>子女帮设置</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 天气卡片 -->
+  <view class="card weather-card">
+    <view class="weather-loading" wx:if="{{weatherLoading}}">
+      <text>正在获取天气…</text>
+    </view>
+
+    <block wx:elif="{{weather}}">
+      <view class="weather-main">
+        <text class="weather-icon">{{weather.icon}}</text>
+        <text class="weather-temp">{{weather.temp}}°</text>
+        <view class="weather-detail">
+          <view class="weather-text">{{weather.text}}</view>
+          <view class="weather-range">最高 {{weather.tempMax}}° / 最低 {{weather.tempMin}}°</view>
+          <view class="weather-loc" wx:if="{{locationTip}}">{{locationTip}}</view>
+        </view>
+        <view class="voice-btn" bindtap="readWeather">🔊 播报</view>
+      </view>
+      <view class="advice-line">{{advice}}</view>
+    </block>
+
+    <view wx:else class="weather-empty">
+      <view class="weather-empty-text">{{advice}}</view>
+      <view class="btn btn-accent btn-sm refresh-btn" bindtap="onRefreshWeather">刷新天气</view>
+    </view>
+  </view>
+
+  <!-- 跌倒呼救（红色大按钮，占整行） -->
+  <button class="fall-btn" bindtap="onFallDetect" disabled="{{sosSending}}">
+    <text class="fall-icon">🚨</text>
+    <view class="fall-texts">
+      <view class="fall-title">我摔倒了</view>
+      <view class="fall-desc">{{sosSending ? '正在通知家人…' : '立即通知家人并发送我的位置'}}</view>
+    </view>
+  </button>
+
+  <!-- 2x2 大图标快捷入口 -->
+  <view class="core-grid">
+    <view
+      wx:for="{{features}}"
+      wx:key="key"
+      class="core-tile"
+      data-key="{{item.key}}"
+      bindtap="onCoreTap"
+      hover-class="tile-hover"
+    >
+      <view class="tile-icon">{{item.icon}}</view>
+      <view class="tile-title">{{item.title}}</view>
+      <view class="tile-desc">{{item.desc}}</view>
+    </view>
+  </view>
+
+  <!-- 今日状态 -->
+  <view class="card">
+    <view class="card-title">今日状态</view>
+
+    <view class="status-row" data-type="med" bindtap="onStatusTap" hover-class="row-hover">
+      <view class="status-icon">💊</view>
+      <view class="status-body">
+        <view class="status-title">用药</view>
+        <view class="status-desc">
+          {{medTotal > 0 ? (medTaken + ' / ' + medTotal + ' 次已服') : '今天还没有用药计划'}}
+        </view>
+      </view>
+      <view class="status-mark">
+        <text wx:if="{{medTotal > 0 && medTaken >= medTotal}}" class="ok-mark">✓ 已完成</text>
+        <text wx:elif="{{medTotal > 0}}" class="todo-mark">✎ 去服药</text>
+        <text wx:else class="todo-mark">＋ 去添加</text>
+      </view>
+    </view>
+
+    <view class="status-row" data-type="bp" bindtap="onStatusTap" hover-class="row-hover">
+      <view class="status-icon">❤️</view>
+      <view class="status-body">
+        <view class="status-title">血压</view>
+        <view class="status-desc">今天是否测量了血压</view>
+      </view>
+      <view class="status-mark">
+        <text wx:if="{{bpDone}}" class="ok-mark">✓ 已测</text>
+        <text wx:else class="todo-mark">✎ 去测量</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 更多服务（活动/饮食/就医） -->
+  <view class="card">
+    <view class="card-title">更多服务</view>
+    <view
+      wx:for="{{moreTools}}"
+      wx:key="key"
+      class="menu-row"
+      data-key="{{item.key}}"
+      bindtap="onMoreTap"
+      hover-class="row-hover"
+    >
+      <text class="menu-icon">{{item.icon}}</text>
+      <view class="menu-body">
+        <view class="menu-title">{{item.title}}</view>
+        <view class="menu-desc">{{item.desc}}</view>
+      </view>
+      <text class="go-arrow">›</text>
+    </view>
+  </view>
+
+  <view class="safe-tip">身体不适请及时联系家人或医生。紧急情况下请使用上方“紧急呼救”或“我摔倒了”。</view>
+</view>

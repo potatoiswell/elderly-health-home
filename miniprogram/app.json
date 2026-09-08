@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/records/records",
+    "pages/medicines/medicines",
+    "pages/profile/profile",
+    "pages/archive/archive",
+    "pages/activity/activity",
+    "pages/meals/meals",
+    "pages/medical/medical",
+    "pages/family/family"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#2C5F8A",
+    "navigationBarTitleText": "健康居家管理",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#FDF8F0",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#8A7F6F",
+    "selectedColor": "#2C5F8A",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      { "pagePath": "pages/index/index", "text": "首页" },
+      { "pagePath": "pages/records/records", "text": "健康记录" },
+      { "pagePath": "pages/medicines/medicines", "text": "用药" },
+      { "pagePath": "pages/profile/profile", "text": "我的" }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于获取当前位置，为您提供本地天气、跌倒呼救定位"
+    }
+  },
+  "requiredPrivateInfos": ["getLocation"],
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,119 @@
+<view class="sub-page">
+  <!-- 未绑定：输入 6 位码 -->
+  <block wx:if="{{!bound}}">
+    <view class="card">
+      <view class="card-title">绑定老人账号</view>
+      <view class="family-icon">👨‍👩‍👧</view>
+      <view class="bind-tip">请输入家中老人“子女帮设置”里的 6 位绑定码，绑定后可远程查看 TA 的健康数据。</view>
+
+      <view class="field">
+        <view class="field-label">6 位绑定码</view>
+        <view class="input-box code-input">
+          <input
+            type="number"
+            maxlength="6"
+            value="{{bindCode}}"
+            bindinput="onCodeInput"
+            placeholder="如 123456"
+            placeholder-class="placeholder-style"
+          />
+        </view>
+      </view>
+
+      <view class="bind-err" wx:if="{{errMsg}}">⚠ {{errMsg}}</view>
+
+      <button class="btn btn-primary" bindtap="onBind" disabled="{{loading}}">
+        绑定并查看
+      </button>
+
+      <view class="privacy-note">
+        绑定后仅可“只读”查看；老人可随时在“我的 → 子女帮设置”刷新绑定码来解除关系。
+      </view>
+    </view>
+  </block>
+
+  <!-- 已绑定：只读汇总 -->
+  <block wx:else>
+    <view class="card parent-card">
+      <view class="parent-name">{{parent.name || '家中老人'}}</view>
+      <view class="parent-meta" wx:if="{{parent.age}}">{{parent.age}} 岁</view>
+      <view class="parent-desc" wx:if="{{parent.emergencyName || parent.emergencyPhone}}">
+        紧急联系人：{{parent.emergencyName || '—'}} {{parent.emergencyPhone || ''}}
+      </view>
+      <view class="history-note" wx:if="{{parent.allergy}}">过敏药物：{{parent.allergy}}</view>
+      <view class="history-note" wx:if="{{parent.history}}">病史：{{parent.history}}</view>
+    </view>
+
+    <!-- 今日用药 -->
+    <view class="card">
+      <view class="card-title">今日用药</view>
+      <view wx:if="{{medicineSummary.length === 0}}" class="small-empty">今天没有用药计划</view>
+      <view wx:for="{{medicineSummary}}" wx:key="index" class="med-line">
+        <view class="med-line-main">
+          <text class="med-line-name">{{item.name}}</text>
+          <text class="med-line-time" wx:if="{{item.dosage}}">（{{item.dosage}}）</text>
+          <view class="med-line-sub">⏰ {{item.time}}</view>
+        </view>
+        <view class="med-line-status st-{{item.status}}">{{item.statusText}}</view>
+      </view>
+    </view>
+
+    <!-- 血压 -->
+    <view class="card">
+      <view class="card-title">最近血压</view>
+      <view wx:if="{{bpList.length === 0}}" class="small-empty">暂无血压记录</view>
+      <view wx:for="{{bpList}}" wx:key="_id" class="mini-line">
+        <text>{{item.date}}</text>
+        <text class="mini-value">{{item.display}}</text>
+      </view>
+    </view>
+
+    <!-- 血糖 -->
+    <view class="card">
+      <view class="card-title">最近血糖</view>
+      <view wx:if="{{sugarList.length === 0}}" class="small-empty">暂无血糖记录</view>
+      <view wx:for="{{sugarList}}" wx:key="_id" class="mini-line">
+        <text>{{item.date}}</text>
+        <text class="mini-value">{{item.display}}</text>
+      </view>
+    </view>
+
+    <!-- 饮食 -->
+    <view class="card">
+      <view class="card-title">最近饮食</view>
+      <view wx:if="{{meals.length === 0}}" class="small-empty">暂无饮食记录</view>
+      <view wx:for="{{meals}}" wx:key="_id" class="meal-line">
+        <image wx:if="{{item.imageFileID}}" class="meal-thumb" src="{{item.imageFileID}}" mode="aspectFill"></image>
+        <view class="meal-text">
+          <view class="meal-title">{{item.date}} · {{item.typeText}}</view>
+          <view wx:if="{{item.note}}" class="meal-note">{{item.note}}</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 就医 -->
+    <view class="card">
+      <view class="card-title">最近就医</view>
+      <view wx:if="{{visits.length === 0}}" class="small-empty">暂无就医记录</view>
+      <view wx:for="{{visits}}" wx:key="_id" class="visit-line">
+        <view class="visit-dot"></view>
+        <view class="visit-body">
+          <view class="visit-title">{{item.date}} · {{item.hospital}} {{item.department}}</view>
+          <view class="visit-desc" wx:if="{{item.diagnosis}}">诊断：{{item.diagnosis}}</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 紧急呼救记录 -->
+    <view class="card" wx:if="{{emergencyList.length > 0}}">
+      <view class="card-title">呼救记录</view>
+      <view wx:for="{{emergencyList}}" wx:key="_id" class="mini-line">
+        <text>{{item.date}}</text>
+        <text class="mini-value state-missed">{{item.statusText}}</text>
+      </view>
+    </view>
+
+    <button class="btn btn-ghost" bindtap="onUnbind">解除绑定</button>
+    <view class="readonly-tip">以上数据为只读查看；如需修改请由老人本人操作。</view>
+  </block>
+</view>

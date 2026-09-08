@@ -1,0 +1,9 @@
+{
+  "name": "emergencyAlert",
+  "version": "1.0.0",
+  "description": "跌倒/紧急呼救：记录求救日志并推送订阅消息给已绑定子女",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

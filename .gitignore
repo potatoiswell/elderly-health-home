@@ -1,0 +1,15 @@
+# 微信开发者工具本地文件
+project.private.config.json
+
+# 依赖与日志
+node_modules/
+cloudfunctions/**/node_modules/
+*.log
+.DS_Store
+
+# 个人隐私/开发记录（不随仓库推送）
+docs-private/
+
+# 本地环境配置（如后续使用）
+.env
+.env.local

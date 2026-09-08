@@ -1,0 +1,74 @@
+<view class="sub-page">
+  <view class="card">
+    <view class="card-title">个人档案</view>
+
+    <!-- 头像：微信头像选择按钮 -->
+    <view class="avatar-row">
+      <image class="avatar-preview" src="{{form.avatarFileID || '/images/avatar.png'}}" mode="aspectFill"></image>
+      <button class="btn btn-ghost btn-sm avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+        更换微信头像
+      </button>
+    </view>
+
+    <view class="field">
+      <view class="field-label"><text class="req">*</text>姓名</view>
+      <view class="input-box">
+        <input value="{{form.name}}" data-field="name" bindinput="onFormInput" placeholder="老人姓名" placeholder-class="placeholder-style" />
+      </view>
+    </view>
+
+    <view class="field">
+      <view class="field-label">年龄</view>
+      <view class="input-box">
+        <input type="number" value="{{form.age}}" data-field="age" bindinput="onFormInput" placeholder="如 72" placeholder-class="placeholder-style" />
+        <text class="input-unit">岁</text>
+      </view>
+    </view>
+
+    <view class="field">
+      <view class="field-label">病史（慢性病等）</view>
+      <view class="textarea-box">
+        <textarea
+          value="{{form.history}}"
+          data-field="history"
+          bindinput="onFormInput"
+          placeholder="如：高血压 8 年、糖尿病 3 年…"
+          placeholder-class="placeholder-style"
+          maxlength="500"
+        ></textarea>
+      </view>
+    </view>
+
+    <view class="field">
+      <view class="field-label">过敏药物</view>
+      <view class="textarea-box">
+        <textarea
+          value="{{form.allergy}}"
+          data-field="allergy"
+          bindinput="onFormInput"
+          placeholder="如：青霉素过敏…"
+          placeholder-class="placeholder-style"
+          maxlength="300"
+        ></textarea>
+      </view>
+    </view>
+
+    <view class="field">
+      <view class="field-label">紧急联系人</view>
+      <view class="input-box">
+        <input value="{{form.emergencyName}}" data-field="emergencyName" bindinput="onFormInput" placeholder="如：儿子 王强" placeholder-class="placeholder-style" />
+      </view>
+    </view>
+
+    <view class="field">
+      <view class="field-label"><text class="req">*</text>紧急联系电话（首页呼救会拨打）</view>
+      <view class="input-box">
+        <input type="number" value="{{form.emergencyPhone}}" data-field="emergencyPhone" bindinput="onFormInput" placeholder="手机或座机号码" placeholder-class="placeholder-style" />
+      </view>
+    </view>
+
+    <button class="btn btn-accent" bindtap="onSave" disabled="{{saving || uploadingAvatar}}">保存档案</button>
+  </view>
+
+  <view class="privacy-tip">🔒 档案仅保存于微信云开发，只有您本人（及已绑定的子女）可以查看。</view>
+</view>
