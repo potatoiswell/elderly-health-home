@@ -29,8 +29,24 @@
 <img width="205" height="412" alt="image" src="https://github.com/user-attachments/assets/d14c29d8-516a-445d-ae65-aec67e238312" />
 
 ### 四、用药页面
+用户可以在这里输入自己的用药信息和预定时间，设定好之后会在首页提醒用户用药，用户用药后可以确认，确认之后系统标记用药完成。
 
 <img width="207" height="413" alt="image" src="https://github.com/user-attachments/assets/7bbf5b4d-c401-4b53-8a50-a2aa8e1f72c2" />
+
+### 五、其他功能
+在首页，用户如果跌倒可以点击呼叫应急联系人。
+
+<img width="269" height="542" alt="image" src="https://github.com/user-attachments/assets/8cd35a63-6751-4e1e-9505-088699fac1d7" />
+
+每日活动可以从微信运动抓取运动步数，并支持用户自己输入运动步数。
+
+饮食记录可以上传每日饮食：
+
+<img width="275" height="540" alt="image" src="https://github.com/user-attachments/assets/92edc571-0eb5-42ae-8b88-fbe935987dd7" />
+
+就医记录可以记录近期的就医信息和诊断
+
+<img width="274" height="539" alt="image" src="https://github.com/user-attachments/assets/bb578480-3f2b-468c-91b7-707356f61ecb" />
 
 ---
 ## 一、已交付内容
