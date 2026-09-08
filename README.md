@@ -3,7 +3,7 @@
 面向老年用户及其子女的健康居家管理小程序。前端全部使用微信小程序原生
 `wxml/wxss/js/json`，后端全部使用云开发（云函数 + 云数据库 + 定时触发器），
 无自建服务器。
-
+演示视频：https://github.com/potatoiswell/elderly-health-home/issues/1
 ## 一、已交付内容
 
 ### 页面
