@@ -9,8 +9,33 @@
 <img width="203" height="389" alt="image" src="https://github.com/user-attachments/assets/c1322ca9-e391-4509-b8c1-7bd4787746d7" />
 二、我的页面：
 <img width="209" height="418" alt="image" src="https://github.com/user-attachments/assets/cc7f54e3-a79d-4bb6-a895-646072c6f668" />
+## 🎬 演示视频
 
+点击下方链接观看完整操作演示：
 
+[▶️ 点击观看演示视频](https://github.com/potatoiswell/elderly-health-home/issues/1)
+
+---
+## 📸 部分页面截图
+
+### 一、首页
+首页整合了天气信息、出行建议、健康状态概览和核心功能入口。
+
+<img width="212" height="413" alt="首页截图1" src="https://github.com/user-attachments/assets/d72e3931-2f2f-4444-abfe-15317fba519e" />
+<img width="203" height="389" alt="首页截图2" src="https://github.com/user-attachments/assets/c1322ca9-e391-4509-b8c1-7bd4787746d7" />
+
+### 二、我的页面
+展示用户个人信息，并提供健康档案编辑、数据管理等设置入口。
+
+<img width="209" height="418" alt="我的页面截图" src="https://github.com/user-attachments/assets/cc7f54e3-a79d-4bb6-a895-646072c6f668" />
+### 三、健康记录页面
+用户可以在这里输入自己的血压、血糖值，展示血压趋势。
+
+<img width="205" height="412" alt="image" src="https://github.com/user-attachments/assets/d14c29d8-516a-445d-ae65-aec67e238312" />
+### 四、用药页面
+<img width="207" height="413" alt="image" src="https://github.com/user-attachments/assets/7bbf5b4d-c401-4b53-8a50-a2aa8e1f72c2" />
+
+---
 ## 一、已交付内容
 
 ### 页面
